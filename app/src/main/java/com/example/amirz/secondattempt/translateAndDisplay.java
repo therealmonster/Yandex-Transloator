@@ -9,8 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.amirz.secondattempt.models.ResponseModel;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -48,7 +46,7 @@ public class translateAndDisplay extends AppCompatActivity implements View.OnCli
         if (view.getId() == R.id.transBut) {
             String text = editText.getText().toString();
 
-            Interface client = ApiService.gettingBuilder().create(Interface.class);
+            YandexClient client = ApiService.gettingBuilder().create(YandexClient.class);
             Call<ResponseModel> call = client.translate(KEY, text, LANG);
             call.enqueue(new Callback<ResponseModel>() {
                 @Override

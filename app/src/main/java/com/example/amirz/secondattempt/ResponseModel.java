@@ -1,4 +1,4 @@
-package com.example.amirz.secondattempt.models;
+package com.example.amirz.secondattempt;
 
 /**
  * Created by amirz on 1/17/2018.
