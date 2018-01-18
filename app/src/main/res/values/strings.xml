@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Yandex-Translator</string>
+    <string name="yandex_link"><a href ="http://translate.yandex.com/">Powered by Yandex.Translate</a> </string>
+</resources>
