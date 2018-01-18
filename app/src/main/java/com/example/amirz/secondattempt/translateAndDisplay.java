@@ -14,6 +14,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class translateAndDisplay extends AppCompatActivity implements View.OnClickListener {
+
+    // Based on the api requirement.
+    // this is for the link to be clickable inside the app, As per yandex requirement we need to have a creditText which can go the official website
+
+    TextView link;
+
     private EditText editText;
     private TextView translation;
     private Button transBut;
@@ -25,7 +31,7 @@ public class translateAndDisplay extends AppCompatActivity implements View.OnCli
     // Language
     private static final String LANG = "en-ru";
 
-    TextView link;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +51,12 @@ public class translateAndDisplay extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         if (view.getId() == R.id.transBut) {
             String text = editText.getText().toString();
-
-            YandexClient client = ApiService.gettingBuilder().create(YandexClient.class);
-            Call<ResponseModel> call = client.translate(KEY, text, LANG);
-            call.enqueue(new Callback<ResponseModel>() {
-                @Override
+      YandexClient client = ApiService.gettingBuilder().create(YandexClient.class);
+       Call<ResponseModel> call = client.translate(KEY, text, LANG);
+       call.enqueue(new Callback<ResponseModel>() {
+        @Override
                 public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
-                    ResponseModel model = response.body();
+            ResponseModel model = response.body();
                     translation.setText(model.getText()[0]);
                 }
 

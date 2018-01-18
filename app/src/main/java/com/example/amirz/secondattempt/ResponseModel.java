@@ -9,6 +9,8 @@ public class ResponseModel {
     private String lang;
     private int key;
 
+   // here we specify getter methods for the language , key and text
+
 
     public String[] getText() {
         return text;
